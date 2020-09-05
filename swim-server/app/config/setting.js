@@ -1,8 +1,8 @@
 const path = require('path');
 
 module.exports = {
-  port: 5000,
-  siteDomain: 'http://localhost:5000',
+  port: 3006,
+  siteDomain: 'http://96.45.182.196:3006',
   countDefault: 10,
   pageDefault: 0,
   apiDir: 'app/api',
