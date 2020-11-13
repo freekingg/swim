@@ -1,6 +1,8 @@
 import { NotFound, Forbidden } from 'lin-mizar';
-import Sequelize from 'sequelize';
+import Sequelize, { json } from 'sequelize';
 import { Exam as Model } from '../model/exam';
+
+import { createPoster } from '../lib/poster';
 
 class ExamDao {
   async getItem(id) {
@@ -30,12 +32,23 @@ class ExamDao {
 
   async createItem(v) {
     const bk = new Model();
+    let extend = v.get('body.extend');
     bk.name = v.get('body.name');
     bk.phone = v.get('body.phone');
     bk.coach = v.get('body.coach');
     bk.score = v.get('body.score');
-    bk.extend = v.get('body.extend');
-    await bk.save();
+    bk.extend = extend;
+    const instance = await bk.save();
+
+    // 保存与生成海报
+    let poster = await createPoster(instance.id);
+    console.log('poster', poster);
+    const item = await Model.findByPk(instance.id);
+    if (!item) {
+      return;
+    }
+    item.poster = poster;
+    await item.save();
   }
 
   async updateItem(v, id) {

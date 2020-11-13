@@ -1,0 +1,105 @@
+*{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.container{
+	width: 746px;
+	background-color: #fff;
+	padding: 30px 56px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+.header{
+	line-height: 22px;
+}
+.line{
+	display: inline-block;
+	border-bottom: 1px solid #000;
+}
+.header .name_line{
+	width: 300px;
+}
+.header .date_line{
+	width: 88px;
+}
+.header .date{
+	padding-left: 6px;
+}
+.header .title{
+	font-size: 24px;
+	line-height: 42px;
+}
+.main{
+	display: flex;
+	margin-top: 30px;
+}
+.main-left{
+	flex: 1;
+	border-right: 1px solid #000;
+}
+.main-right{
+	flex: 1;
+}
+.main .list{
+	padding-top: 10px;
+}
+.subject{
+	width: 214px;
+	display: flex;
+	justify-content: space-between;
+	margin-left: 56px;
+	font-weight: bold;
+}
+.main .list>li{
+	display: flex;
+	margin-bottom: 9px;
+	height: 20px;
+	line-height: 20px;
+	align-items: center;
+}
+.main .list>li .no{
+	width: 54px;
+	display: inline-block;
+	padding-left: 12px;
+	box-sizing: border-box;
+}
+.main .list ol{
+	display: flex;
+	width: 214px;
+	justify-content: space-between;
+}
+.grid{
+	width: 14px;
+	height: 14px;
+	border: 1px solid #000;
+}
+.grid.check{
+	background-color: #000;
+}
+.name_line{
+	width: 376px;
+}
+.sigin{
+	
+}
+.sigin p{
+	padding-top: 24px;
+	display: inline-block;
+}
+
+.sigin p span{
+	display: block;
+	text-align: center;
+	width: 376px;
+}
+
+.sigin p .date_line{
+	width: 206px;
+}
+.sigin p .date_line{
+	width: 200px;
+}
+.sigin p .date-info{
+	width: 200px;
+}

@@ -18,13 +18,11 @@
         <el-table-column prop="create_time" label="创建时间" header-align="center" align="center" />
         <el-table-column label="操作" fixed="right" header-align="center" align="center" width="150">
           <template slot-scope="scope">
-            <el-button
-              type="success"
-              size="mini"
-              :disabled="false"
-              @click="addOrUpdateHandle(scope.row.id)"
-            >查看</el-button>
+            <el-button type="success" size="mini" :disabled="false" @click="addOrUpdateHandle(scope.row.id)"
+              >查看</el-button
+            >
             <el-button type="danger" size="mini" disabled @click="deleteHandle(scope.row.id)">删除</el-button>
+            <el-button type="danger" size="mini" @click="test(scope.row.id)">试卷</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -75,6 +73,9 @@ export default {
     }
   },
   methods: {
+    test(id) {
+      console.log(id)
+    },
     matchTag(tag_ids) {
       return this.tags.filter(item => tag_ids.includes(`${item.id}`))
     },

@@ -13,6 +13,7 @@ class Exam extends Model {
       coach: this.coach,
       score: this.score,
       extend: this.extend,
+      poster: this.poster,
       create_time: this.create_time
     };
     return origin;
@@ -44,6 +45,10 @@ Exam.init(
     },
     extend: {
       type: Sequelize.TEXT,
+      allowNull: true
+    },
+    poster: {
+      type: Sequelize.STRING(200),
       allowNull: true
     }
   },
