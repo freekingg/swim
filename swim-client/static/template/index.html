@@ -1,98 +1,93 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>期末考试</title>
-		<link rel="stylesheet" type="text/css" href="./css/main.css" />
-		<script src="./js/axios.js" type="text/javascript" charset="utf-8"></script>
-	</head>
-	<body>
-		<div class="container">
-			<div class="header">
-				<p>
-					<strong class="name">姓名</strong>（请以正楷书写）<span class="line name_line"></span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>期末考试</title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <script src="./js/axios.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <p>
+          <strong class="name">姓名</strong>（请以正楷书写）<span
+            class="line name_line"
+          ></span>
 
-					<strong class="date">日期</strong><span class="line date_line"></span>
-				</p>
-				<h3 class="title">开放水域潜水员课程期末考试解答</h3>
-				<p>
-					<strong class="name">说明:</strong>在您选好答案后，请将对应字母有方框涂满。如果填错了，请将选错的答案擦掉，或在选错的答案上打X
-				</p>
-			</div>
-			<div class="main">
-				<div class="main-left">
-					<div class="subject">
-						<span>A</span>
-						<span>B</span>
-						<span>C</span>
-						<span>D</span>
-					</div>
-					<ul class="list">
-
-					</ul>
-				</div>
-				<div class="main-right">
-					<div class="subject">
-						<span>A</span>
-						<span>B</span>
-						<span>C</span>
-						<span>D</span>
-					</div>
-					<ul class="list">
-						
-					</ul>
-				</div>
-			</div>
-			<div class="footer">
-				<p>
-					<strong class="date">学员声明:</strong>答错的题目，我已获得解答并了解错在哪里
-				</p>
-				<div class="sigin">
-					<p>
-						<span class="line name_line"></span>
-						<span>学员签名</span>
-					</p>
-					<p>
-						<span class="line date_line"></span>
-						<span class="date-info">日/月/西元</span>
-					</p>
-				</div>
-
-			</div>
-		</div>
-	</body>
-	<script type="text/javascript">
-		let mainLeftList = document.querySelector('.main-left .list')
-		let mainRightList = document.querySelector('.main-right .list')
-		axios({
-			method: 'get',
-			url: 'http://localhost:3006/v1/exam/6',
-		}).then(res => {
-			const {
-				extend,
-				create_time
-			} = res.data
-			let list = JSON.parse(extend)
-			console.log(list, create_time);
-			let str = ''
-			list.map((item, index) => {
-				if (index <= 23) {
-					str +=
-						`
+          <strong class="date">日期</strong><span class="line date_line"></span>
+        </p>
+        <h3 class="title">开放水域潜水员课程期末考试解答</h3>
+        <p>
+          <strong class="name">说明:</strong
+          >在您选好答案后，请将对应字母有方框涂满。如果填错了，请将选错的答案擦掉，或在选错的答案上打X
+        </p>
+      </div>
+      <div class="main">
+        <div class="main-left">
+          <div class="subject">
+            <span>A</span>
+            <span>B</span>
+            <span>C</span>
+            <span>D</span>
+          </div>
+          <ul class="list"></ul>
+        </div>
+        <div class="main-right">
+          <div class="subject">
+            <span>A</span>
+            <span>B</span>
+            <span>C</span>
+            <span>D</span>
+          </div>
+          <ul class="list"></ul>
+        </div>
+      </div>
+      <div class="footer">
+        <p>
+          <strong class="date">学员声明:</strong
+          >答错的题目，我已获得解答并了解错在哪里
+        </p>
+        <div class="sigin">
+          <p>
+            <span class="line name_line"></span>
+            <span>学员签名</span>
+          </p>
+          <p>
+            <span class="line date_line"></span>
+            <span class="date-info">日/月/西元</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    let mainLeftList = document.querySelector(".main-left .list");
+    let mainRightList = document.querySelector(".main-right .list");
+    axios({
+      method: "get",
+      url: "http://localhost:3006/v1/exam/3",
+    }).then((res) => {
+      const { extend, create_time } = res.data;
+      let list = JSON.parse(extend);
+      console.log(list, create_time);
+      let str = "";
+      list.map((item, index) => {
+        if (index <= 23) {
+          str += `
 				  <li>
-				  	<span class="no">${index+1}.</span>
+				  	<span class="no">${index + 1}.</span>
 				  	<ol>
-				  		<li class="grid ${item.myAnswer === 'A' ? 'check':''}"></li>
-				  		<li class="grid ${item.myAnswer === 'B' ? 'check':''}"></li>
-				  		<li class="grid" ${item.myAnswer === 'C' ? 'check':''}></li>
-				  		<li class="grid ${item.myAnswer === 'D' ? 'check':''}"></li>
+				  		<li class="grid ${item.myAnswer === "A" ? "check" : ""}"></li>
+				  		<li class="grid ${item.myAnswer === "B" ? "check" : ""}"></li>
+				  		<li class="grid ${item.myAnswer === "C" ? "check" : ""}"></li>
+				  		<li class="grid ${item.myAnswer === "D" ? "check" : ""}"></li>
 				  	</ol>
 				  </li>
-				  `
-				}
-			})
-			mainLeftList.innerHTML = str
-		})
-	</script>
+				  `;
+        }
+      });
+      mainLeftList.innerHTML = str;
+    });
+  </script>
 </html>
